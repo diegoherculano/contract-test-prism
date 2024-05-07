@@ -23,7 +23,6 @@ async function downloadSwagger() {
     const json = await response.json();
     await fs.writeFile(swaggerFile, JSON.stringify(json, null, 2));
     console.log(`Swagger saved ${swaggerFile}`);
-    console.clear();
   } catch (error) {
     console.error(`Error while downloading the Swagger: ${error.message}`);
   }

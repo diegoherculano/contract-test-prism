@@ -39,9 +39,7 @@
   "paths": {
     "/login": {
       "post": {
-        "tags": [
-          "Login"
-        ],
+        "tags": ["Login"],
         "summary": "Realizar login",
         "description": "A duração do token retornado em authorization é de 600 segundos (10 minutos). Caso esteja expirado irá receber status code 401 (Unauthorized).\n",
         "parameters": [
@@ -54,9 +52,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "Login realizado com sucesso",
@@ -75,13 +71,9 @@
     },
     "/usuarios": {
       "get": {
-        "tags": [
-          "Usuários"
-        ],
+        "tags": ["Usuários"],
         "summary": "Listar usuários cadastrados",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "$ref": "#/parameters/_id"
@@ -109,9 +101,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Usuários"
-        ],
+        "tags": ["Usuários"],
         "summary": "Cadastrar usuário",
         "description": "Não é permitido cadastrar usuário com email já utilizado",
         "parameters": [
@@ -124,9 +114,8 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
+        "consumes": ["application/json"],
         "responses": {
           "201": {
             "description": "Cadastro com sucesso",
@@ -145,13 +134,9 @@
     },
     "/usuarios/{_id}": {
       "get": {
-        "tags": [
-          "Usuários"
-        ],
+        "tags": ["Usuários"],
         "summary": "Buscar usuário por ID",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "in": "path",
@@ -184,14 +169,10 @@
         }
       },
       "delete": {
-        "tags": [
-          "Usuários"
-        ],
+        "tags": ["Usuários"],
         "summary": "Excluir usuário",
         "description": "Não é permitido excluir usuário com carrinho.",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "in": "path",
@@ -224,9 +205,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Usuários"
-        ],
+        "tags": ["Usuários"],
         "summary": "Editar usuário",
         "description": "Não é permitido cadastrar usuário com email já utilizado.\nCaso não seja encontrado usuário com o ID informado é realizado novo cadastro ao invés de alteração.\n",
         "parameters": [
@@ -247,9 +226,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "Alterado com sucesso",
@@ -274,13 +251,9 @@
     },
     "/produtos": {
       "get": {
-        "tags": [
-          "Produtos"
-        ],
+        "tags": ["Produtos"],
         "summary": "Listar produtos cadastrados",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "$ref": "#/parameters/_id"
@@ -308,9 +281,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Produtos"
-        ],
+        "tags": ["Produtos"],
         "security": [
           {
             "ApiKeyAuth": []
@@ -328,9 +299,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "201": {
             "description": "Cadastro com sucesso",
@@ -361,13 +330,9 @@
     },
     "/produtos/{_id}": {
       "get": {
-        "tags": [
-          "Produtos"
-        ],
+        "tags": ["Produtos"],
         "summary": "Buscar produto por ID",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "in": "path",
@@ -400,9 +365,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Produtos"
-        ],
+        "tags": ["Produtos"],
         "security": [
           {
             "ApiKeyAuth": []
@@ -410,9 +373,7 @@
         ],
         "summary": "Excluir produto",
         "description": "Não é permitido excluir produto que faz parte de carrinho.",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "in": "path",
@@ -457,9 +418,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Produtos"
-        ],
+        "tags": ["Produtos"],
         "security": [
           {
             "ApiKeyAuth": []
@@ -485,9 +444,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "Alterado com sucesso",
@@ -524,14 +481,10 @@
     },
     "/carrinhos": {
       "get": {
-        "tags": [
-          "Carrinhos"
-        ],
+        "tags": ["Carrinhos"],
         "summary": "Listar carrinhos cadastrados",
         "description": "Os carrinhos retornados são únicos por usuário",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "$ref": "#/parameters/_id"
@@ -556,9 +509,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Carrinhos"
-        ],
+        "tags": ["Carrinhos"],
         "security": [
           {
             "ApiKeyAuth": []
@@ -576,9 +527,7 @@
             "required": true
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "201": {
             "description": "Cadastro com sucesso",
@@ -609,13 +558,9 @@
     },
     "/carrinhos/{_id}": {
       "get": {
-        "tags": [
-          "Carrinhos"
-        ],
+        "tags": ["Carrinhos"],
         "summary": "Buscar carrinho por ID",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "in": "path",
@@ -650,9 +595,7 @@
     },
     "/carrinhos/concluir-compra": {
       "delete": {
-        "tags": [
-          "Carrinhos"
-        ],
+        "tags": ["Carrinhos"],
         "security": [
           {
             "ApiKeyAuth": []
@@ -660,9 +603,7 @@
         ],
         "summary": "Excluir carrinho",
         "description": "Ao concluir uma compra o carrinho é excluído.\nO carrinho excluído será o vinculado ao usuário do `token` utilizado.\n",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "Registro excluído com sucesso | Não foi encontrado carrinho para esse usuário",
@@ -687,9 +628,7 @@
     },
     "/carrinhos/cancelar-compra": {
       "delete": {
-        "tags": [
-          "Carrinhos"
-        ],
+        "tags": ["Carrinhos"],
         "security": [
           {
             "ApiKeyAuth": []
@@ -697,9 +636,7 @@
         ],
         "summary": "Excluir carrinho e retornar produtos para estoque",
         "description": "Ao cancelar uma compra o carrinho é excluído e o estoque dos produtos desse carrinho é reabastecido.\nO carrinho excluído será o vinculado ao usuário do `token` utilizado.\n",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "Registro excluído com sucesso | Não foi encontrado carrinho para esse usuário",
@@ -753,10 +690,7 @@
       "name": "administrador",
       "required": false,
       "type": "string",
-      "enum": [
-        "true",
-        "false"
-      ]
+      "enum": ["true", "false"]
     },
     "preco": {
       "in": "query",
@@ -818,10 +752,7 @@
     },
     "administrador": {
       "type": "string",
-      "enum": [
-        "true",
-        "false"
-      ],
+      "enum": ["true", "false"],
       "example": "true"
     },
     "_idUsuario": {
@@ -883,7 +814,8 @@
         "administrador": {
           "$ref": "#/definitions/administrador"
         }
-      }
+      },
+      "required": ["nome", "email", "password", "administrador"]
     },
     "requestBodyLogin": {
       "type": "object",

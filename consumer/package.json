@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test --recursive",
-    "mock": "node ./utils/downloadSwagger.js && prism mock -d swagger.json"
+    "swagger": "node ./utils/downloadSwagger.js",
+    "mock": "prism mock -d swagger.json"
   },
   "keywords": [],
   "author": "",
